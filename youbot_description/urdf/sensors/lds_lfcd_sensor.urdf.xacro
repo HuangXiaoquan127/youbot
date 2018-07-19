@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find youbot_description)/urdf/sensors/lds_lfcd_sensor.gazebo.xacro" />
+
+  <xacro:macro name="lds_lfcd_sensor" params="name parent *origin ros_topic update_rate min_angle max_angle">
+    <joint name="${name}_lds_lfcd_sensor_joint" type="fixed">
+      <axis xyz="0 1 0" />
+      <xacro:insert_block name="origin" /> ??
+      <parent link="${parent}_link"/>
+      <child link="${name}_link"/>
+	  <origin xyz="-0.064 0 0.122" rpy="0 0 0"/>
+    </joint>
+	
+    <link name="${name}_link" type="laser">
+		<inertial>
+		<mass value="0.114" />
+		<origin xyz="0 0 0" />
+		<inertia ixx="0.001" ixy="0.0" ixz="0.0"
+				iyy="0.001" iyz="0.0"
+				izz="0.001" />
+		</inertial>
+		
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://youbot_description/meshes/sensors/lds.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="dark" />
+		</visual>
+				
+		<collision>
+		<origin xyz="0.015 0 -0.0065" rpy="0 0 0"/>
+		<geometry>
+			<cylinder length="0.0315" radius="0.055"/>
+		</geometry>
+		</collision>
+    </link>
+    <!-- gazebo extensions -->
+    <xacro:lds_lfcd_sensor_gazebo name="${name}" ros_topic="${ros_topic}" update_rate="${update_rate}" min_angle="${min_angle}" max_angle="${max_angle}" />
+  </xacro:macro>
+</robot>
