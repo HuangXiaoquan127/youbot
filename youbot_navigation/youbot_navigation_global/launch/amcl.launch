@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <launch>
+	<arg name="world" />
+	
 	<!-- Run map server -->
 	<!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find youbot_mapping)/map/willowgarage_world_map/map.yaml" output="screen"/> -->
-	<node name="map_server" pkg="map_server" type="map_server" args="$(find youbot_mapping)/map/robocup_at_work_2012/map.yaml" output="screen"/>
+	<node name="map_server" pkg="map_server" type="map_server" args="$(find youbot_mapping)/map/$(arg world)/map.yaml" output="screen"/>
 
 
 <!--

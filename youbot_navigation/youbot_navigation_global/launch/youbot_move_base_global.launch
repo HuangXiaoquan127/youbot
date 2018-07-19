@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
+<!-- for simulation -->
+
 <launch>
+	<arg name="world" />
+	
     <!-- Throttle the voxel grid that is being published for rviz -->
    <!-- <node ns="move_base_node/local_costmap" name="voxel_grid_throttle" pkg="topic_tools" type="throttle" args="messages voxel_grid 3.0 voxel_grid_throttled" /> -->
     
@@ -10,7 +14,9 @@
     </node>
    
 	<!-- include map_server and amcl -->
-	<include file="$(find youbot_navigation_global)/launch/amcl.launch" />
+	<include file="$(find youbot_navigation_global)/launch/amcl.launch" >
+		<arg name="world" value="$(arg world)" />
+	</include>
 	<!-- <include file="$(find amcl)/examples/amcl_diff.launch" >
 	</include> -->	
 	
