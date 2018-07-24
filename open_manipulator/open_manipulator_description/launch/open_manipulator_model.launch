@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <arg name="use_gazebo"	   default="false" />
   <arg name="open_rviz"	     default="false" />
