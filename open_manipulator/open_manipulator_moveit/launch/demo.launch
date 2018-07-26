@@ -1,3 +1,4 @@
+<?xml version="1.0" ?>
 <launch>
 
   <!-- By default, we do not start a database (it can be large) -->
@@ -49,6 +50,12 @@
     <arg name="debug" value="$(arg debug)"/>
   </include>
 
+  <!-- OpenManipultor Position controller--> add by hxq
+  <!-- <include file="$(find open_manipulator_position_ctrl)/launch/open_manipulator_position_controller.launch">
+    <arg name="use_gazebo"     value="true"/>
+    <arg name="use_robot_name" value="open_manipulator"/>
+  </include>-->
+  
   <!-- If database loading was enabled, start mongodb as well -->
   <include file="$(find open_manipulator_moveit)/launch/default_warehouse_db.launch" if="$(arg db)">
     <arg name="moveit_warehouse_database_path" value="$(arg db_path)"/>
