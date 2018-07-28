@@ -27,7 +27,7 @@
 
   <!-- <param name="sample_duration" value="0.04" /> -->
 
-  <rosparam command="load" file="$(find open_manipulator_moveit)/config/ompl_planning.yaml"/>
-  <!-- <rosparam command="load" file="$(find open_manipulator_moveit)/config/smoothing_filter_params.yaml"/> -->
+  <rosparam command="load" file="$(find youbot_arm_moveit)/config/ompl_planning.yaml"/>
+  <!-- <rosparam command="load" file="$(find youbot_arm_moveit)/config/smoothing_filter_params.yaml"/> -->
 
 </launch>

@@ -1,0 +1,7 @@
+gazebo_ros_control:
+  pid_gains:
+    arm_joint_1: {p: 2000.0, i: 0.01, d: 0.1}
+    arm_joint_2: {p: 2000.0, i: 0.01, d: 0.1}
+    arm_joint_3: {p: 2000.0, i: 0.01, d: 0.1}
+    arm_joint_4: {p: 2000.0, i: 0.01, d: 0.1}
+    arm_joint_5: {p: 2000.0, i: 0.01, d: 0.1}

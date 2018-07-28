@@ -32,6 +32,16 @@
        is the world frame). For more, see http://www.ros.org/wiki/xacro -->
 
   <!-- foot for arm-->
+  <!-- Fix the warn: The root link base_link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.  
+  As a workaround, you can add an extra dummy link to your URDF. So to fix it, the base_parent_link and joint are added.-->
+  <link name="base_parent_link"/>
+  
+  <joint name="base_joint" type="fixed" >
+	<origin xyz="0 0 0" rpy="0 0 0" />
+	<parent link="base_parent_link" />
+	<child link="base_link" />
+  </joint> --add by hxq
+  
   <link name="base_link">
     <inertial>
 		   <origin xyz="0 0 0" rpy="0 0 0"/>
