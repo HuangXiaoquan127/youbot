@@ -1,6 +1,6 @@
-arm_controller:
-  #type: position_controllers/JointTrajectoryController
+arm_controller:  
   type: effort_controllers/JointTrajectoryController
+  #type: position_controllers/JointTrajectoryController
   joints:
     - arm_joint_1
     - arm_joint_2
