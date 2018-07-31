@@ -3,7 +3,7 @@ youbot_navigation
 
 The ROS navigation stack configured for the KUKA youBot.
 
-##Simulation
+## Simulation
 - Mapping
 	```
 	$ roslaunch youbot_mapping youbot_gmapping.launch
@@ -16,7 +16,7 @@ The ROS navigation stack configured for the KUKA youBot.
 	```
 	$ roslaunch youbot_navigation_local move_base_local.launch
 	```
-##Reality
+## Reality
 - Mapping
 	```
 	$ roslaunch youbot_mapping youbot_gmapping_reality.launch
