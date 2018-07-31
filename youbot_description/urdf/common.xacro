@@ -2,6 +2,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
 	<xacro:property name="M_PI" value="3.1415926535897931" />
+	<xacro:property name="deg_to_rad" value="0.01745329251994329577"/>  add by hxq
 
 	<!-- Casters -->
 	<xacro:property name="cal_caster_fl" value="0.0" />

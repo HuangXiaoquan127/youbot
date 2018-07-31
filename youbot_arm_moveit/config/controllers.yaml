@@ -13,6 +13,8 @@ controller_list:
   - name: arm_1/gripper_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
+    #action_ns: gripper_cmd
+    #type: GripperCommand
     default: true
     joints:
       - gripper_finger_joint_l
