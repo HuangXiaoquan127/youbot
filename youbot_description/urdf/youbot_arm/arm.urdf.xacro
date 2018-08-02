@@ -2,12 +2,11 @@
 <robot  xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
         xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
         xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-        xmlns:xacro="http://ros.org/wiki/xacro">
+        xmlns:xacro="http://www.ros.org/wiki/xacro/#interface">
 
 	<xacro:include filename="$(find youbot_description)/urdf/youbot_arm/arm.gazebo.xacro" />
 	<xacro:include filename="$(find youbot_description)/urdf/youbot_arm/arm.transmission.xacro" />
-    <xacro:include filename="$(find youbot_description)/urdf/youbot_arm/limits.urdf.xacro" />
-
+	<xacro:include filename="$(find youbot_description)/urdf/youbot_arm/limits.urdf.xacro" />
 
 	<xacro:macro name="youbot_arm" params="parent name *origin">
 
@@ -32,7 +31,7 @@
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_arm/arm0.dae" />
 				</geometry>
-				<material name="DarkGrey" />
+				<material name="youBot/DarkGrey" />
 			</visual>
 
 			<collision>
@@ -59,7 +58,7 @@
 			<limit effort="${9.5}" velocity="${M_PI / 2.0}" lower="0" upper="${joint_1_limit}"/> 
 			<!--effort - N, N*m-->
 			<!--velocity - m/s, rad/s-->
-			<!-- <safety_controller k_position="20" k_velocity="${9.5/M_PI / 2.0}" soft_lower_limit="${threshold}" soft_upper_limit="${joint_1_limit_soft}" /> -->
+			<!--safety_controller k_position="20" k_velocity="${9.5/M_PI / 2.0}" soft_lower_limit="${threshold}" soft_upper_limit="${joint_1_limit_soft}" /-->
 			<!--k_position N/m, N/rad-->
 			<!--k_velocity N*s/m, N*s*m/rad-->
 			<!--for details: http://www.ros.org/wiki/pr2_controller_manager/safety_limits-->
@@ -76,7 +75,7 @@
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_arm/arm1.dae" />
 				</geometry>
-				<!--<material name="Orange" />-->
+				<material name="youBot/Orange" />
 			</visual>
 			
 			<collision>
@@ -98,7 +97,7 @@
 			<!--<calibration rising="${arm_2_ref}" falling="${arm_2_ref}"/>-->
 			<dynamics damping="1" friction="1" />
 			<limit effort="${9.5}" velocity="${M_PI / 2.0}" lower="0" upper="${joint_2_limit}"/>
-            <!-- <safety_controller k_position="20" k_velocity="${2*9.5/M_PI}" soft_lower_limit="${threshold}" soft_upper_limit="${joint_2_limit_soft}" /> -->
+      <!--safety_controller k_position="20" k_velocity="${2*9.5/M_PI}" soft_lower_limit="${threshold}" soft_upper_limit="${joint_2_limit_soft}" /-->
 		</joint>
 
 		<link name="${name}_link_2">
@@ -112,7 +111,7 @@
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_arm/arm2.dae" />
 				</geometry>
-				<material name="Orange" />
+				<material name="youBot/Orange" />
 			</visual>
 			
 			<collision>
@@ -133,7 +132,7 @@
 			<axis xyz="0 1 0"/>
 			<dynamics damping="1" friction="1" />
 			<limit effort="${6}" velocity="${M_PI / 2.0}" lower="-${joint_3_limit}" upper="0"/>
-            <safety_controller k_position="20" k_velocity="50" soft_lower_limit="-${joint_3_limit_soft}" soft_upper_limit="${threshold}" />
+      <safety_controller k_position="20" k_velocity="50" soft_lower_limit="-${joint_3_limit_soft}" soft_upper_limit="${threshold}" />
 		</joint>-->
 		<joint name="${name}_joint_3" type="revolute">
 			<origin xyz="0.000 0.000 0.155" rpy="0 ${146 * M_PI / 180} 0"/>
@@ -141,8 +140,8 @@
 			<child link="${name}_link_3"/>
 			<axis xyz="0 1 0"/>
 			<dynamics damping="1" friction="1" />
-			<limit effort="${6}" velocity="${M_PI / 2.0}" lower="-${joint_3_limit}" upper="0"/>
-            <!-- <safety_controller k_position="20" k_velocity="50" soft_lower_limit="-${joint_3_limit_soft}" soft_upper_limit="-${threshold}" /> -->
+			<limit effort="${6.0}" velocity="${M_PI / 2.0}" lower="-${joint_3_limit}" upper="0"/>
+      <!--safety_controller k_position="20" k_velocity="50" soft_lower_limit="-${joint_3_limit_soft}" soft_upper_limit="-${threshold}" /-->
 		</joint>
 
 		<link name="${name}_link_3">
@@ -156,7 +155,7 @@
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_arm/arm3.dae" />
 				</geometry>
-				<material name="Orange" />
+				<material name="youBot/Orange" />
 			</visual>
 			
 			<collision>
@@ -176,9 +175,9 @@
 			<child link="${name}_link_4"/>
 			<axis xyz="0 1 0" />
 			<!--<calibration rising="${arm_4_ref}" falling="${arm_4_ref}"/>-->
-			<dynamics damping="1" friction="0.5" />
-			<limit effort="${2}" velocity="${M_PI / 2.0}" lower="0" upper="${joint_4_limit}"/>
-			<!-- <safety_controller k_position="20" k_velocity="100" soft_lower_limit="0" soft_upper_limit="${joint_4_limit_soft}" /> -->
+			<dynamics damping="1" friction="0.5" />  modified
+			<limit effort="${2.0}" velocity="${M_PI / 2.0}" lower="0" upper="${joint_4_limit}"/>
+			<!--safety_controller k_position="20" k_velocity="100" soft_lower_limit="0" soft_upper_limit="${joint_4_limit_soft}" /-->
 		</joint>
 
 		<link name="${name}_link_4">
@@ -192,7 +191,7 @@
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_arm/arm4.dae" />
 				</geometry>
-				<material name="Orange" />
+				<material name="youBot/Orange" />
 			</visual>
 			
 			<collision>
@@ -214,7 +213,7 @@
 			<!--<calibration rising="${arm_5_ref}" falling="${arm_5_ref}"/>-->
 			<dynamics damping="1" friction="0.1" /> modify to 0.1, to avoid turning too slowly
 			<limit effort="${1.0}" velocity="${M_PI / 2.0}" lower="0" upper="${joint_5_limit}" />
-            <!-- <safety_controller k_position="20" k_velocity="100" soft_lower_limit="0" soft_upper_limit="${joint_5_limit_soft}" /> -->
+      <!--safety_controller k_position="20" k_velocity="100" soft_lower_limit="0" soft_upper_limit="${joint_5_limit_soft}" /-->
 		</joint>
 
 		<link name="${name}_link_5">
@@ -228,7 +227,7 @@
 				<geometry>
 					<mesh filename="package://youbot_description/meshes/youbot_arm/arm5.dae" />
 				</geometry>
-				<material name="DarkGrey" />
+				<material name="youBot/DarkGrey" />
 			</visual>
 			
 			<collision>

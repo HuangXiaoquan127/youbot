@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
   <name>youbot_simulation</name>
-  <version>0.8.0</version>
-  <description>Packages to run the KUKA youBot in the Gazebo simulation with ROS</description>
+  <version>0.1.0</version>
+  <description>Meta packages which holds packages to run the KUKA youBot in the Gazebo simulation with ROS</description>
 
   <maintainer email="nowak@locomotec.com">Walter Nowak</maintainer>
   <maintainer email="blumenthal@locomotec.com">Sebastian Blumenthal</maintainer>
@@ -14,10 +14,6 @@
   <author email="frederik.hegger@h-brs.de">Frederik Hegger</author>
 
   <buildtool_depend>catkin</buildtool_depend>
-
-  <run_depend>youbot_gazebo_control</run_depend>
-  <run_depend>youbot_gazebo_robot</run_depend>
-  <run_depend>youbot_gazebo_worlds</run_depend>
 
   <export>
     <metapackage/>

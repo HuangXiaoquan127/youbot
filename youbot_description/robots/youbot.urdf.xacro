@@ -2,7 +2,7 @@
 <robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:xacro="http://ros.org/wiki/xacro"
+       xmlns:xacro="http://www.ros.org/wiki/xacro/#interface"
        name="youbot" >
   
   <!-- The following xacro:included files set up definitions of parts of the robot body -->
@@ -63,9 +63,8 @@
   </xacro:hokuyo_urg04_laser> -->
   
   <!-- base lds_lfcd_sensor front -->
-  <xacro:lds_lfcd_sensor name="base_laser_front" parent="base" ros_topic="base_scan" update_rate="1800" min_angle="-1.57" max_angle="1.57">
+  <xacro:lds_lfcd_sensor name="base_laser_front" parent="base" ros_topic="base_scan" update_rate="10" min_angle="-1.57" max_angle="1.57">
     <origin xyz="0.315 0 -0.03" rpy="0 0 0"/>
-  </xacro:lds_lfcd_sensor>
-
+  </xacro:lds_lfcd_sensor> -->
   
 </robot>

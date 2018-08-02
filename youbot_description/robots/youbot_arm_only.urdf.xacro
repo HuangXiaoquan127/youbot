@@ -2,7 +2,7 @@
 <robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:xacro="http://ros.org/wiki/xacro"
+       xmlns:xacro="http://www.ros.org/wiki/xacro/#interface"
        name="youbot" >
   
   <!-- The following included files set up definitions of parts of the robot body -->
@@ -20,7 +20,7 @@
  
   <!-- controller manager -->
   <xacro:include filename="$(find youbot_description)/controller/ros_controller.urdf.xacro" />
-  
+
   <!-- sensors -->
   <xacro:include filename="$(find youbot_description)/urdf/sensors/xtion_pro_live.urdf.xacro"/>  add for grasping test
   
@@ -60,11 +60,11 @@
   <xacro:youbot_gripper name="gripper" parent="arm_link_5">
     <origin xyz="0 0 0" rpy="0 0 0" />
   </xacro:youbot_gripper>
-  
+
   <!-- Define RGB-D sensor -->
   <!-- <xacro:xtion_pro_live name="rgbd_camera" parent="base">
     <origin xyz="0.5 0 2.5" rpy="0 ${75.0 * deg_to_rad} 0"/>
     <origin xyz="0 0 0" rpy="${-90.0 * deg_to_rad} 0 ${-90.0 * deg_to_rad}"/>
   </xacro:xtion_pro_live> -->  add for grasping test
-
+  
 </robot>
