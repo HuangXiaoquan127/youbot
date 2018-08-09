@@ -50,3 +50,9 @@ Then select the hardware group to move and command it to some known position (e.
 ### Documentation
 
 The MoveIt! kinematics plugin in the youbot_arm_kinematics_moveit package implements the standard MoveIt! interfaces. Therefore, consult the MoveIt! website (http://moveit.ros.org/) for further documentation related to using MoveIt!.
+
+### Add by hxq
+To launch the moveit and gazebo, just launch:
+    ```
+    $ roslaunch youbot_moveit demo_gazebo.launch
+    ```

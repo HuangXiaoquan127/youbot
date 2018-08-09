@@ -16,6 +16,9 @@ The ROS navigation stack configured for the KUKA youBot.
 	```
 	$ roslaunch youbot_navigation_local move_base_local.launch
 	```
+	
+![](https://github.com/HuangXiaoquan127/MarkdownPictures/raw/master/Screenshot%20from%202018-07-19%2010-56-57.png) 
+
 ## Reality
 - Mapping
 	```
