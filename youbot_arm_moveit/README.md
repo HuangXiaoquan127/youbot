@@ -1,4 +1,12 @@
 # youbot arm moveit
+- Install the moveit!
+	```
+	$ sudo apt-get install ros-kinetic-moveit
+	```
+- Dependency package:
+	```
+ 	sudo apt-get install ros-kinetic-brics-actuator
+ 	```
 
 - To test arm in rviz, use this:
 	```

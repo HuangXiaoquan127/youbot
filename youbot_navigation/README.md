@@ -3,6 +3,12 @@ youbot_navigation
 
 The ROS navigation stack configured for the KUKA youBot.
 
+## Dependency
+- Dependency package:
+ 	```
+ 	sudo apt-get install ros-kinetic-amcl ros-kinetic-move-base
+ 	```
+
 ## Simulation
 - Mapping
 	```

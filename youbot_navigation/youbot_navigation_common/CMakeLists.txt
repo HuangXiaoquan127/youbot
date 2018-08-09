@@ -10,7 +10,7 @@ include_directories(
 )
 
 add_executable(lowpass_filter
-	${CMAKE_SOURCE_DIR}/youbot_navigation/youbot_navigation_common/src/lowpass_filter.cpp
+	${CMAKE_SOURCE_DIR}/youbot/youbot_navigation/youbot_navigation_common/src/lowpass_filter.cpp
 )
 
 
