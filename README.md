@@ -1,7 +1,7 @@
 # youbot
 The repository youbot include the youbot driver, simulation, navigation, manipulation etc. This is a research project from the control engineering of Fuzhou University. 
 
-In brief, you can use all fuctions as follows, and specific content, see the individual repositories.
+In brief, you can use all fuctions as follows. In addition, please check the respective packages for specific content.
 
 - Dependency package:
 ```
