@@ -23,7 +23,7 @@
   </xacro:macro>
     
   <xacro:macro name="asus_xtion_camera" params="name parent *origin tilt">
-  	<link name="${name}_foot_link">
+    <link name="${name}_foot_link">
       <inertial>
         <mass value="0.05" />
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -117,28 +117,28 @@
     
 
     <xacro:asus_xtion_eye suffix="depth" parent="${name}">
-		<origin xyz="${eye_x_offset} ${eye_y_offset - 0.02} 0" rpy="0 0 0" />
-	</xacro:asus_xtion_eye>
-        
-	<xacro:asus_xtion_eye suffix="depth_optical" parent="${name}">
-		<origin xyz="${eye_x_offset} ${eye_y_offset - 0.02} 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
-	</xacro:asus_xtion_eye>
-	
-	<xacro:asus_xtion_eye suffix="rgb" parent="${name}">
-		<origin xyz="${eye_x_offset} ${eye_y_offset - 0.04} 0" rpy="0 0 0" />
-	</xacro:asus_xtion_eye>
-	
-	<xacro:asus_xtion_eye suffix="rgb_optical" parent="${name}">
-		<origin xyz="${eye_x_offset} ${eye_y_offset - 0.04} 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
-	</xacro:asus_xtion_eye>
-	
-	<xacro:asus_xtion_eye suffix="laser" parent="${name}">
-		<origin xyz="${eye_x_offset} ${eye_y_offset - 0.09} 0" rpy="0 0 0" />
-	</xacro:asus_xtion_eye>
-	
-	<xacro:asus_xtion_eye suffix="laser_optical" parent="${name}">
-		<origin xyz="${eye_x_offset} ${eye_y_offset - 0.09} 0" rpy="${M_PI/2} 0 ${-M_PI/2}" />
-	</xacro:asus_xtion_eye>
+       <origin xyz="${eye_x_offset} ${eye_y_offset - 0.02} 0" rpy="0 0 0" />
+    </xacro:asus_xtion_eye>
+
+    <xacro:asus_xtion_eye suffix="depth_optical" parent="${name}">
+      <origin xyz="${eye_x_offset} ${eye_y_offset - 0.02} 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
+    </xacro:asus_xtion_eye>
+
+    <xacro:asus_xtion_eye suffix="rgb" parent="${name}">
+      <origin xyz="${eye_x_offset} ${eye_y_offset - 0.04} 0" rpy="0 0 0" />
+    </xacro:asus_xtion_eye>
+
+    <xacro:asus_xtion_eye suffix="rgb_optical" parent="${name}">
+      <origin xyz="${eye_x_offset} ${eye_y_offset - 0.04} 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
+    </xacro:asus_xtion_eye>
+
+    <xacro:asus_xtion_eye suffix="laser" parent="${name}">
+      <origin xyz="${eye_x_offset} ${eye_y_offset - 0.09} 0" rpy="0 0 0" />
+    </xacro:asus_xtion_eye>
+
+    <xacro:asus_xtion_eye suffix="laser_optical" parent="${name}">
+      <origin xyz="${eye_x_offset} ${eye_y_offset - 0.09} 0" rpy="${M_PI/2} 0 ${-M_PI/2}" />
+    </xacro:asus_xtion_eye>
 
     
    <!-- for simulation -->

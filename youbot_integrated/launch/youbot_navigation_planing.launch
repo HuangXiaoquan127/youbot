@@ -59,5 +59,6 @@
   <include file="$(find youbot_moveit)/launch/move_group.launch"/>
 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find youbot_integrated)/config/youbot_navigation_planing.rviz" /> -->
+  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find youbot_navigation_global)/config/youbot_navigation_global.rviz" /> -->
   
 </launch>
