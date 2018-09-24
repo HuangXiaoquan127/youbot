@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!-- for simulation -->
+
+<launch>
+  <!--option: willowgarage_world, robocup_at_work_2012, custom_world-->
+  <arg name="world" default="custom_world"/> 
+  <arg name="robot" default="youbot_with_cam3d"/> youbot, youbot_with_cam3d
+  <arg name="init_pos_x" default="0.0"/>
+  <arg name="init_pos_y" default="1"/>
+  <arg name="init_pos_z" default="0.1"/>
+
+  <!-- launch world -->
+  <include file="$(find youbot_gazebo_worlds)/launch/$(arg world).launch" >
+    <arg name="world" value="poster_wall"/> 
+  </include>
+
+  <!-- start up youbot model -->
+  <!-- youbot -->
+  <param name="robot_description" command="$(find xacro)/xacro.py $(find youbot_description)/robots/$(arg robot).urdf.xacro" />
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_robot" respawn="false" output="screen"
+        args="-param robot_description
+              -urdf
+              -x $(arg init_pos_x)
+              -y $(arg init_pos_y)
+              -z $(arg init_pos_z)
+              -model youbot">
+  </node>  -->
+    
+  <!-- launch joint state controller -->
+  <include file="$(find youbot_gazebo_control)/launch/joint_state_controller.launch" />
+
+  <!-- launch base controller -->
+  <include file="$(find youbot_gazebo_control)/launch/base_controller.launch" />
+
+  <!-- launch arm controller -->
+  <include file="$(find youbot_gazebo_control)/launch/arm_controller.launch" />
+
+  <!-- launch gripper controller -->
+  <include file="$(find youbot_gazebo_control)/launch/gripper_controller.launch" />
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="100.0" />    
+  </node>
+
+  <!-- youbot_navigation_global -->
+  <include file="$(find youbot_vslam)/launch/move_base_rtabmap.launch">
+    <arg name="world" value="$(arg world)" />
+  </include> -->
+  
+  <node pkg="tf" type="static_transform_publisher" name="static_transform_publisher" output="screen"
+        args="0 0 0 0 0 0 tower_cam3d_camera camera_link  30"> tower_cam3d_camera, camera_rgb_frame
+  </node> -->
+  
+  <!-- launch RTAB_MAP-->
+  <arg name="camera_name" default="tower_cam3d"/> camera, tower_cam3d
+  <include file="$(find youbot_vslam)/launch/rtabmap_youbot_used.launch"> -->
+    <arg name="rtabmap_args" value="--delete_db_on_start" />
+    <arg name="rgb_topic" value="/$(arg camera_name)/rgb/image_raw" />
+    <arg name="depth_topic" value="/$(arg camera_name)/depth/image_raw" />
+    <arg name="camera_info_topic" value="/$(arg camera_name)/rgb/camera_info" /> -->
+    <arg name="approx_sync" value="false" />
+    <!-- <arg name="visual_odometry" value="false" /> -->
+    <!-- <arg name="odom_topic" value="/odom" /> -->  
+  </include> -->
+  
+  <!-- launch ORB_SLAM2 RGBD-->
+  <node name="RGBD" pkg="ORB_SLAM2" type="RGBD" output="screen" 
+        args="$(find ORB_SLAM2)/../../../Vocabulary/ORBvoc.txt  $(find youbot_vslam)/config/youbot_xtion.yaml" >
+    <remap from="camera/rgb/image_raw" to="/tower_cam3d/rgb/image_raw" />
+    <remap from="camera/depth_registered/image_raw" to="/tower_cam3d/depth/image_raw" />
+  </node>  -->
+  
+  <!-- launch ORB_SLAM2 Mono-->
+  <node name="Mono_test" pkg="ORB_SLAM2" type="Mono" output="screen" 
+        args="$(find ORB_SLAM2)/../../../Vocabulary/ORBvoc.txt  $(find youbot_vslam)/config/youbot_xtion_mono.yaml" >
+    <remap from="camera/image_raw" to="/tower_cam3d/rgb/image_raw" />
+  </node>  -->
+    
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find youbot_vslam)/config/youbot_rtabmap_navigation.rviz"/> -->
+  
+</launch>

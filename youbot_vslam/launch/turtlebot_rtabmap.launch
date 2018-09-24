@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!-- for simulation -->
+
+<launch>
+  <include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch" />
+  <include file="$(find rtabmap_ros)/launch/demo/demo_turtlebot_mapping.launch" >
+    <arg name="simulation" value="true"/>
+    <arg name="rtabmapviz" value="true"/>
+    <arg name="rgbd_odometry" value="true"/>
+  </include>
+  <include file="$(find rtabmap_ros)/launch/demo/demo_turtlebot_rviz.launch" />    
+</launch>

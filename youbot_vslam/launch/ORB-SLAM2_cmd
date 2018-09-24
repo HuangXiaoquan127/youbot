@@ -1,0 +1,32 @@
+Monocular Examples:
+./Examples/Monocular/mono_tum Vocabulary/ORBvoc.txt Examples/Monocular/TUM1.yaml ~/Downloads/vSLAM_dataset/rgbd_dataset_freiburg1_xyz
+
+./Examples/Monocular/mono_euroc Vocabulary/ORBvoc.txt Examples/Monocular/EuRoC.yaml ~/Downloads/vSLAM_dataset/V2_02_medium/mav0/cam0/data Examples/Monocular/EuRoC_TimeStamps/V202.txt
+
+Stereo Examples:
+./Examples/Stereo/stereo_euroc Vocabulary/ORBvoc.txt Examples/Stereo/EuRoC.yaml ~/Downloads/vSLAM_dataset/V2_02_medium/mav0/cam0/data ~/Downloads/vSLAM_dataset/V2_02_medium/mav0/cam1/data Examples/Stereo/EuRoC_TimeStamps/V202.txt
+
+RGB-D Example:
+./Examples/RGB-D/rgbd_tum Vocabulary/ORBvoc.txt Examples/RGB-D/TUM1.yaml ~/Downloads/vSLAM_dataset/rgbd_dataset_freiburg1_xyz Examples/RGB-D/associations/fr1_xyz.txt
+
+------------------------------------
+ROS Examples:
+Running Monocular Node:
+rosrun ORB_SLAM2 Mono $(rospack find ORB_SLAM2)/../../../Vocabulary/ORBvoc.txt $(rospack find ORB_SLAM2)/../../../Examples/Monocular/TUM1.yaml
+
+
+Running RGB_D Node:
+for kinect v1:
+roslaunch openni_launch openni.launch depth_registration:=true
+rosrun ORB_SLAM2 RGBD V$(rospack find ORB_SLAM2)/../../../Vocabulary/ORBvoc.txt ~/catkin_ws/src/youbot/youbot_vslam/config/youbot_xtion.yaml
+
+------------------------------------
+for turtlebot keyboard_teleop:
+roslaunch turtlebot_teleop keyboard_teleop.launch
+for youbot keyboard_teleop:
+rosrun youbot_driver_ros_interface youbot_keyboard_teleop.py
+
+-------------------------------------------------------------------------
+rtabmap_cmd
+-------------------------------------------------------------------------
+
