@@ -24,11 +24,11 @@ We use ORB-SLAM2 for test . Dowload and install instructions can be found at: ht
 	```
 	roslaunch youbot_vslam youbot_mutiple_slam.launch
 	```
-## 3. Other command
-youbot keyboard teleoperation:
-	```
-	rosrun youbot_driver_ros_interface youbot_keyboard_teleop.py
-	```
+- Other command
+	- youbot keyboard teleoperation:
+		```
+		rosrun youbot_driver_ros_interface youbot_keyboard_teleop.py
+		```
 
 ![](https://github.com/HuangXiaoquan127/MarkdownPictures/blob/master/2018-09-28%2016%2037%2022.png) 
 ![](https://github.com/HuangXiaoquan127/MarkdownPictures/blob/master/Screenshot%20from%202018-09-24%2016-33-01.png) 
